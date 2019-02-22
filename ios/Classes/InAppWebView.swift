@@ -198,12 +198,14 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
     }
     
     public func loadData(data: String, mimeType: String, encoding: String, baseUrl: String) {
+        let resourcePath = Bundle.main.bundlePath
+        let pathURL = URL.init(fileURLWithPath: resourcePath+"/Frameworks/App.framework/flutter_assets/assets/")
         let url = URL(string: baseUrl)!
         currentURL = url
         if #available(iOS 9.0, *) {
-            load(data.data(using: .utf8)!, mimeType: mimeType, characterEncodingName: encoding, baseURL: url)
+            load(data.data(using: .utf8)!, mimeType: mimeType, characterEncodingName: encoding, baseURL: pathURL)
         } else {
-            loadHTMLString(data, baseURL: url)
+            loadHTMLString(data, baseURL: pathURL)
         }
     }
     

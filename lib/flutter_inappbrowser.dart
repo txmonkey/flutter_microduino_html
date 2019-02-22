@@ -940,7 +940,7 @@ class InAppWebViewController {
   ///Loads the given [data] into this WebView, using [baseUrl] as the base URL for the content.
   ///The [mimeType] parameter specifies the format of the data.
   ///The [encoding] parameter specifies the encoding of the data.
-  Future<void> loadData(String data, {String mimeType = "text/html", String encoding = "utf8", String baseUrl = "about:blank"}) async {
+  Future<void> loadData(String data, {String mimeType = "text/html", String encoding = "utf8", String baseUrl = "assets/index.html"}) async {
     assert(data != null);
     Map<String, dynamic> args = <String, dynamic>{};
     if (_inAppBrowserUuid != null) {
