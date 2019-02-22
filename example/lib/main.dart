@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
-import 'package:flutter_inappbrowser_example/chrome_safari_example.screen.dart';
-import 'package:flutter_inappbrowser_example/inline_example.screen.dart';
-import 'package:flutter_inappbrowser_example/webview_example.screen.dart';
+import 'package:microduino_webview/microduino_webview.dart';
+import 'package:microduino_webview/chrome_safari_example.screen.dart';
+import 'package:microduino_webview/inline_example.screen.dart';
+import 'package:microduino_webview/webview_example.screen.dart';
 
 Future main() async {
   runApp(new MyApp());

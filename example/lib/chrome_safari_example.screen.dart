@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
+import 'package:microduino_webview/microduino_webview.dart';
 
 class MyChromeSafariBrowser extends ChromeSafariBrowser {
   MyChromeSafariBrowser(browserFallback) : super(browserFallback);
