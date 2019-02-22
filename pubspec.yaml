@@ -1,8 +1,8 @@
-name: flutter_inappbrowser
+name: microduino_webview
 description: A Flutter plugin that allows you to add an inline webview or open an in-app browser window (inspired by the popular cordova-plugin-inappbrowser).
-version: 0.5.51
-author: Lorenzo Pichilli <pichillilorenzo@gmail.com>
-homepage: https://github.com/pichillilorenzo/flutter_inappbrowser
+version: 0.0.1
+author: 1061352149@qq.com <1061352149@qq.com>
+homepage: https://github.com/tangxiafeng/flutter_webivew_plugin.git
 
 environment:
   sdk: ">=2.0.0-dev <3.0.0"
