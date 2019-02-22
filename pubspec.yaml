@@ -20,8 +20,8 @@ dependencies:
 # The following section is specific to Flutter.
 flutter:
   plugin:
-    androidPackage: com.tang.microduino_webview
-    pluginClass: MicroduinoWebview
+    androidPackage: com.pichillilorenzo.flutter_inappbrowser
+    pluginClass: InAppBrowserFlutterPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
