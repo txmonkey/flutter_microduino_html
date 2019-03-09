@@ -1,63 +1,70 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:microduino_webview/microduino_webview.dart';
-import 'package:microduino_webview/chrome_safari_example.screen.dart';
-import 'package:microduino_webview/inline_example.screen.dart';
-import 'package:microduino_webview/webview_example.screen.dart';
+import 'dart:async';
+import 'dart:io';
 
-Future main() async {
-  runApp(new MyApp());
-}
+import 'package:flutter_microduino_html/flutter_microduino_html.dart';
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => new _MyAppState();
-}
+String selectedUrl = 'https://flutter.io';
 
-class _MyAppState extends State<MyApp> {
-  InAppWebViewController webView;
-  String url = "";
-  double progress = 0;
+void main() => runApp(MyApp());
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class MyApp extends StatelessWidget {
+  final flutterWebViewPlugin = FlutterWebviewPlugin();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('Tabs Demo'),
-          ),
-          body: TabBarView(
-            children: [
-              WebviewExampleScreen(),
-              ChromeSafariExampleScreen(),
-              InlineExampleScreen(),
-            ],
-          ),
-          bottomNavigationBar: Container(
-            color: Theme.of(context).primaryColor,
-            child: TabBar(
-              indicatorColor: Colors.white,
-              tabs: [
-                Tab(text: "Webview"),
-                Tab(text: "Chrome/Safari"),
-                Tab(
-                  text: "Inline",
-                ),
-              ],
+      title: 'Flutter WebView Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      routes: {
+        '/': (_) {
+          return WebviewScaffold(
+            url: Platform.isIOS
+                ? 'Frameworks/App.framework/flutter_assets/assets/'
+                : "file:///android_asset/flutter_assets/assets/index.html",
+            appBar: AppBar(
+              title: const Text('Widget WebView'),
             ),
-          ))),
+            withZoom: true,
+            withLocalStorage: true,
+            withJavascript:true,
+            hidden: true,
+            withLocalUrl: true,
+            initialChild: Container(
+              color: Colors.redAccent,
+              child: const Center(
+                child: Text('Waiting.....'),
+              ),
+            ),
+            bottomNavigationBar: BottomAppBar(
+              child: Row(
+                children: <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    onPressed: () {
+                      flutterWebViewPlugin.goBack();
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios),
+                    onPressed: () {
+                      flutterWebViewPlugin.goForward();
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.autorenew),
+                    onPressed: () {
+                      flutterWebViewPlugin.reload();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      },
     );
   }
 }

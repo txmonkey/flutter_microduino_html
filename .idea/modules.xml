@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/flutter_inappbrowser.iml" filepath="$PROJECT_DIR$/flutter_inappbrowser.iml" />
       <module fileurl="file://$PROJECT_DIR$/flutter_inappbrowser_android.iml" filepath="$PROJECT_DIR$/flutter_inappbrowser_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/flutter_microduino_html.iml" filepath="$PROJECT_DIR$/.idea/flutter_microduino_html.iml" />
     </modules>
   </component>
 </project>

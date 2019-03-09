@@ -1,16 +1,9 @@
-name: microduino_webview_example
-description: Demonstrates how to use the microduino_webview plugin.
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# Read more about versioning at semver.org.
-version: 1.0.0+1
+name: flutter_microduino_html_example
+description: Demonstrates how to use the flutter_microduino_html plugin.
+publish_to: 'none'
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -24,8 +17,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  microduino_webview:
-      path: ../
+  flutter_microduino_html:
+    path: ../
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -38,16 +31,49 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  assets:
-    - assets/index.html
-    - assets/css/
-    - assets/images/
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
-
+  assets:
+    - assets/images/
+    - assets/index.html
+    - assets/0/static/
+    - assets/0/static/drums/
+    - assets/0/static/instruments/
+    - assets/0/static/instruments/1-piano/
+    - assets/0/static/instruments/2-electric-piano/
+    - assets/0/static/instruments/3-organ/
+    - assets/0/static/instruments/4-guitar/
+    - assets/0/static/instruments/5-electric-guitar/
+    - assets/0/static/instruments/6-bass/
+    - assets/0/static/instruments/7-pizzicato/
+    - assets/0/static/instruments/8-cello/
+    - assets/0/static/instruments/9-trombone/
+    - assets/0/static/instruments/10-clarinet/
+    - assets/0/static/instruments/11-saxophone/
+    - assets/0/static/instruments/12-flute/
+    - assets/0/static/instruments/13-wooden-flute/
+    - assets/0/static/instruments/14-bassoon/
+    - assets/0/static/instruments/15-choir/
+    - assets/0/static/instruments/16-vibraphone/
+    - assets/0/static/instruments/17-music-box/
+    - assets/0/static/instruments/18-steel-drum/
+    - assets/0/static/instruments/19-marimba/
+    - assets/0/static/instruments/20-synth-lead/
+    - assets/0/static/instruments/21-synth-pad/
+    - assets/static/blocks-media/
+    - assets/static/blocks-media/extensions/
+    - assets/static/blocks-media/icons/
+    - assets/static/css/
+    - assets/static/fonts/
+    - assets/static/img/
+    - assets/static/js/
+    - assets/static/others/
+    - assets/static/blocks-media/
+    - assets/extension-worker.js
+    - assets/favicon.ico
+    - assets/react-loadable.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 
