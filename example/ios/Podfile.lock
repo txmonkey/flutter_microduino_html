@@ -2,10 +2,16 @@ PODS:
   - Flutter (1.0.0)
   - flutter_microduino_html (0.0.1):
     - Flutter
+    - WebViewJavascriptBridge
+  - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
   - Flutter (from `.symlinks/flutter/ios`)
   - flutter_microduino_html (from `.symlinks/plugins/flutter_microduino_html/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - WebViewJavascriptBridge
 
 EXTERNAL SOURCES:
   Flutter:
@@ -15,7 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_microduino_html: acb82e3e37e2735322d9246cffaa456c812456c6
+  flutter_microduino_html: 7c51a55dc3879567a5577d4cf188b87669701894
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 
