@@ -9,6 +9,7 @@
 .history
 .svn/
 
+
 # IntelliJ related
 *.iml
 *.ipr
@@ -26,6 +27,7 @@
 .pub-cache/
 .pub/
 /build/
+/assets/
 
 # Android related
 **/android/**/gradle-wrapper.jar

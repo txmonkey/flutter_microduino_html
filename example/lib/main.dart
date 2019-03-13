@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.autorenew),
                     onPressed: () {
-                      flutterWebViewPlugin.reload();
+                      flutterWebViewPlugin.evalJavascript('a', '123');
                     },
                   ),
                 ],

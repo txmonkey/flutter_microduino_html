@@ -16,6 +16,12 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+
+        maven {
+            url "https://jitpack.io"
+        }
+        maven { url 'https://maven.google.com' }
     }
 }
 
@@ -31,4 +37,7 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+}
+dependencies {
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
 }

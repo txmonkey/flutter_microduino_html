@@ -1,5 +1,5 @@
 #import "FlutterMicroduinoHtmlPlugin.h"
-
+#import "WebViewJavascriptBridge.h"
 
 static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
 
@@ -8,6 +8,8 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
     BOOL _enableAppScheme;
     BOOL _enableZoom;
 }
+@property WebViewJavascriptBridge* bridge;
+
 @end
 
 @implementation FlutterMicroduinoHtmlPlugin
@@ -117,6 +119,8 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
 
     [self.viewController.view addSubview:self.webview];
 
+    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webview];
+
     [self navigate:call];
 }
 
@@ -164,10 +168,11 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
      completionHandler:(void (^_Nullable)(NSString * response))completionHandler {
     if (self.webview != nil) {
         NSString *code = call.arguments[@"code"];
-        [self.webview evaluateJavaScript:code
-                       completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-            completionHandler([NSString stringWithFormat:@"%@", response]);
+        NSLog(@"code====>: %@", code);
+        [self.bridge callHandler:code data:nil responseCallback:^(id responseData) {
+        	NSLog(@"ObjC received response: %@", responseData);
         }];
+
     } else {
         completionHandler(nil);
     }

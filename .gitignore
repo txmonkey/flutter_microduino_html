@@ -7,4 +7,6 @@
 pubspec.lock
 .idea/
 
+assets/
+
 build/

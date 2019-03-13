@@ -52,6 +52,8 @@ public class FlutterMicroduinoHtmlPlugin implements MethodCallHandler, PluginReg
             case "eval":
                 eval(call, result);
                 break;
+//            case "registerHandler":
+//                registerHandler(call, result);
             case "resize":
                 resize(call, result);
                 break;
@@ -197,6 +199,12 @@ public class FlutterMicroduinoHtmlPlugin implements MethodCallHandler, PluginReg
             webViewManager.eval(call, result);
         }
     }
+
+//    private void registerHandler(MethodCall call, final MethodChannel.Result result) {
+//        if (webViewManager != null) {
+//            webViewManager.registerHandler(call, result);
+//        }
+//    }
 
     private void resize(MethodCall call, final MethodChannel.Result result) {
         if (webViewManager != null) {
