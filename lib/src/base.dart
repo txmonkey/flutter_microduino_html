@@ -149,6 +149,12 @@ class FlutterWebviewPlugin {
     return res;
   }
 
+  /// Execute Javascript inside webview
+  Future<String> registerHandler(String code, [String str]) async {
+    final res = await _channel.invokeMethod('registerHandler', {'code': code, 'str': str});
+    return res;
+  }
+
   /// Close the Webview
   /// Will trigger the [onDestroy] event
   Future<Null> close() async => await _channel.invokeMethod('close');

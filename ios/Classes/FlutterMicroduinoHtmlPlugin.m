@@ -47,6 +47,10 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
         [self evalJavascript:call completionHandler:^(NSString * response) {
             result(response);
         }];
+    } else if ([@"registerHandler" isEqualToString:call.method]) {
+        [self registerHandler:call completionHandler:^(NSString * response) {
+            result(response);
+        }];
     } else if ([@"resize" isEqualToString:call.method]) {
         [self resize:call];
         result(nil);
@@ -168,9 +172,22 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
      completionHandler:(void (^_Nullable)(NSString * response))completionHandler {
     if (self.webview != nil) {
         NSString *code = call.arguments[@"code"];
-        NSLog(@"code====>: %@", code);
         [self.bridge callHandler:code data:nil responseCallback:^(id responseData) {
         	NSLog(@"ObjC received response: %@", responseData);
+        }];
+
+    } else {
+        completionHandler(nil);
+    }
+}
+
+- (void)registerHandler:(FlutterMethodCall*)call
+     completionHandler:(void (^_Nullable)(NSString * response))completionHandler {
+    if (self.webview != nil) {
+        NSString *code = call.arguments[@"code"];
+        [self.bridge registerHandler:code handler:^(id data, WVJBResponseCallback responseCallback) {
+        	responseCallback(data);
+            [channel invokeMethod:@"eval" arguments:code];
         }];
 
     } else {

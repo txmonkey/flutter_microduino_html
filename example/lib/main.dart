@@ -10,7 +10,6 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final flutterWebViewPlugin = FlutterWebviewPlugin();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,8 +42,9 @@ class MyApp extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () {
-                      flutterWebViewPlugin.goBack();
+                    onPressed: () async {
+                      String a = await flutterWebViewPlugin.registerHandler('ObjC Echo', '123');
+                      print('a====>$a}');
                     },
                   ),
                   IconButton(
