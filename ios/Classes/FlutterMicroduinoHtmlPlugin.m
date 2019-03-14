@@ -124,7 +124,7 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
     [self.viewController.view addSubview:self.webview];
 
     self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webview];
-
+    [self.bridge setWebViewDelegate:self];
     [self navigate:call];
 }
 
@@ -186,8 +186,8 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
     if (self.webview != nil) {
         NSString *code = call.arguments[@"code"];
         [self.bridge registerHandler:code handler:^(id data, WVJBResponseCallback responseCallback) {
-        	responseCallback(data);
-            [channel invokeMethod:@"eval" arguments:code];
+            [channel invokeMethod:@"onState" arguments:@{@"type": @"eval", @"url": code}];
+            responseCallback(data);
         }];
 
     } else {

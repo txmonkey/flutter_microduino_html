@@ -23,12 +23,24 @@ public class MyWebClient extends BridgeWebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        return super.shouldOverrideUrlLoading(view, request);
+        super.shouldOverrideUrlLoading(view, request);
+        Map<String, Object> data = new HashMap<>();
+        data.put("url", url);
+        data.put("type", "startLoad");
+        FlutterWebviewPlugin.channel.invokeMethod("onState", data);
     }
 
     @Override
     public void onPageFinished(WebView webView, String url) {
         super.onPageFinished(webView, url);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("url", url);
+
+        FlutterWebviewPlugin.channel.invokeMethod("onUrlChanged", data);
+
+        data.put("type", "finishLoad");
+        FlutterWebviewPlugin.channel.invokeMethod("onState", data);
         if(jsFunctionStr != null)webView.loadUrl(jsFunctionStr);
     }
 

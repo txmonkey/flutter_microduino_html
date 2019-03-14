@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 const _kChannel = 'flutter_microduino_html';
 
 // TODO: more general state for iOS/android
-enum WebViewState { shouldStart, startLoad, finishLoad }
+enum WebViewState { shouldStart, startLoad, finishLoad, eval }
 
 // TODO: use an id by webview to be able to manage multiple webview
 
@@ -238,6 +238,9 @@ class WebViewStateChanged {
         break;
       case 'finishLoad':
         t = WebViewState.finishLoad;
+        break;
+      case 'eval':
+        t = WebViewState.eval;
         break;
     }
     return WebViewStateChanged(t, map['url'], map['navigationType']);

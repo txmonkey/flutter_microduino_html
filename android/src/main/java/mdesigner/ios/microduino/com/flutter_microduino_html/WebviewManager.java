@@ -203,14 +203,16 @@ class WebviewManager {
 
     void registerHandler(MethodCall call, final MethodChannel.Result result) {
         String code = call.argument("code");
-        String str = call.argument("str");
 
         webView.registerHandler(code, new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
                 Log.i("123", "handler = submitFromWeb, data from web = " + data);
+                Map<String, Object> result = new HashMap<>();
+                result.put("url", code);
+                result.put("type", "eval");
+                FlutterMicroduinoHtmlPlugin.channel.invokeMethod("eval", result);
                 function.onCallBack("success");
-                FlutterMicroduinoHtmlPlugin.channel.invokeMethod("eval", code);
             }
         });
     }
