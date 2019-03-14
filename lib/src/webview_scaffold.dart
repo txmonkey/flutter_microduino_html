@@ -66,7 +66,6 @@ class _WebviewScaffoldState extends State<WebviewScaffold> {
   @override
   void initState() {
     super.initState();
-    webviewReference.close();
 
     if (widget.hidden) {
       _onStateChanged = webviewReference.onStateChanged.listen((WebViewStateChanged state) {
@@ -81,7 +80,7 @@ class _WebviewScaffoldState extends State<WebviewScaffold> {
   void dispose() {
     super.dispose();
     _resizeTimer?.cancel();
-    webviewReference.close();
+    webviewReference.hide();
     if (widget.hidden) {
       _onStateChanged.cancel();
     }

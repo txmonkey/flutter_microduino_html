@@ -172,7 +172,8 @@ static NSString *const CHANNEL_NAME = @"flutter_microduino_html";
      completionHandler:(void (^_Nullable)(NSString * response))completionHandler {
     if (self.webview != nil) {
         NSString *code = call.arguments[@"code"];
-        [self.bridge callHandler:code data:nil responseCallback:^(id responseData) {
+        NSString *str = call.arguments[@"str"];
+        [self.bridge callHandler:code data:str responseCallback:^(id responseData) {
         	NSLog(@"ObjC received response: %@", responseData);
         }];
 
