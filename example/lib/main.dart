@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
                     onPressed: () async {
-                      String a = await flutterWebViewPlugin.registerHandler('ObjC Echo', '123');
+                      String a = await flutterWebViewPlugin.registerHandler('submitFromWeb');
                       print('a====>$a}');
                     },
                   ),
