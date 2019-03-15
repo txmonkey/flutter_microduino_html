@@ -157,7 +157,7 @@ class WebviewManager {
         if (!scrollBar) {
             webView.setVerticalScrollBarEnabled(false);
         }
-
+        Log.e("MIC", "url ====== " + url);
         if (headers != null) {
             webView.loadUrl(url, headers);
         } else {

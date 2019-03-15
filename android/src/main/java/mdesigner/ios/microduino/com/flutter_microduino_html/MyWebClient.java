@@ -29,7 +29,8 @@ public class MyWebClient extends BridgeWebViewClient {
     @Override
     public void onPageFinished(WebView webView, String url) {
         super.onPageFinished(webView, url);
-        if(jsFunctionStr != null)webView.loadUrl(jsFunctionStr);
+        Log.e("MIC", "jsFunctionStr ====== " + this.jsFunctionStr);
+        if(this.jsFunctionStr != null)webView.loadUrl(this.jsFunctionStr);
     }
 
     @Override
